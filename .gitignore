@@ -1,0 +1,51 @@
+# Ignore operating system files and folders
+.DS_Store
+Thumbs.db
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+
+# Ignore system and temporary files
+node_modules/
+npm-debug.log*
+yarn-error.log*
+*.log
+*.swp
+
+# Ignore dependency files
+package-lock.json
+yarn.lock
+
+# Ignore compiled code
+/dist/
+/build/
+/out/
+/lib/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore sensitive or private information
+secrets.json
+
+# Ignore database files
+*.sqlite
+
+# Ignore logs
+logs/
+
+# Ignore macOS resource forks and .DS_Store files
+__MACOSX/
+.AppleDouble/
+
+# Ignore models and data 
+__pycache__/
+data/
+src/data/
+src/trained_model/
+src/metrics_obtained/
