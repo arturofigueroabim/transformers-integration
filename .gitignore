@@ -46,5 +46,6 @@ __MACOSX/
 # Ignore models and data 
 __pycache__/
 .ipynb_checkpoints/
-src/trained_model/
+src/trained_model/*
 src/metrics_obtained/
+!src/trained_model/*.zip
