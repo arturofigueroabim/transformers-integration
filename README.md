@@ -49,6 +49,18 @@ This project uses Poetry for dependency management and packaging.
 - Matplotlib: ^3.7.2
 - Seaborn: ^0.12.2
 
+## Working with Large Files in This Repository
+
+If you're planning to clone, pull, or work with large files in this repository, there's an important step to note:
+
+:warning: **Git Large File Storage (LFS)** :warning:  
+This repository uses Git LFS to handle large files. Before you can work with such files:
+
+1. Install Git LFS on your machine. Detailed instructions can be found on the [official Git LFS site](https://git-lfs.github.com/).
+2. After cloning the repository, ensure to run `git lfs pull` to download the large files.
+
+Remember, everyone who clones or pulls from this repository and wants to work with the large files will also need to have Git LFS installed on their machine.
+
 ## Running the Project
 To evaluate the models using the provided script:
 
