@@ -67,7 +67,7 @@ To evaluate the models using the provided script:
 1. Ensure that the configuration file (`config.py`) has been set up correctly and that any paths to datasets, models, or other resources are correct.
 2. Run the evaluation script using:
 ```bash
-python evaluate.py  
+python combined_main.py  
 ```
 
 1. Ensure you have all required libraries installed. If using Poetry, you can install all dependencies via:
