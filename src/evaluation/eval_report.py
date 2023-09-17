@@ -7,7 +7,7 @@ from config import CONFIG
 def run_classification_report(trainer, tokenizer):
     # Load the test dataset
     mapping = {'Attack': 0, 'Support': 1}
-    df = pd.read_pickle(CONFIG.data)
+    df = pd.read_pickle(CONFIG.DATA_PATH)
     split = df[(df['mode'] == 'test') & (df['label'].isin(['Attack', 'Support']))]
     split['label'] = split['label'].map(mapping)
 

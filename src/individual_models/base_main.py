@@ -23,4 +23,4 @@ trainer.fit(module)
 #trainer.test(module)
 
 # Save the model
-trainer.save_checkpoint(CONFIG.pretrained_output_model)
+trainer.save_checkpoint(CONFIG.BASE_MODEL["base"]["output_path"])

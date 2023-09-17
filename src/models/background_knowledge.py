@@ -15,7 +15,7 @@ class CustomTrainer(Trainer):
         return (loss, outputs) if return_outputs else loss
 
 def create_ernie_model(num_labels, class_weights):
-    model = BertForSequenceClassification.from_pretrained(CONFIG.ernie_pretrained_model_name, 
+    model = BertForSequenceClassification.from_pretrained(CONFIG.PRETRAINED_MODEL["ernie"]["name"], 
                                                           num_labels=num_labels, 
                                                           output_attentions = False, 
                                                           output_hidden_states = False)
@@ -23,15 +23,15 @@ def create_ernie_model(num_labels, class_weights):
     return model, loss_fct
 
 def create_kepler_model(num_labels, class_weights):
-    config = RobertaConfig.from_pretrained(CONFIG.kepler_pretrained_input_model)
-    model = RobertaForSequenceClassification.from_pretrained(CONFIG.kepler_pretrained_input_model, 
+    config = RobertaConfig.from_pretrained(CONFIG.PRETRAINED_MODEL["kepler"]["input_path"])
+    model = RobertaForSequenceClassification.from_pretrained(CONFIG.PRETRAINED_MODEL["kepler"]["input_path"], 
                                                             config= config)
     loss_fct = CrossEntropyLoss(weight=class_weights)
     return model, loss_fct
 
 def create_libert_model(num_labels, class_weights):
-    config = BertConfig.from_pretrained(CONFIG.libert_pretrained_input_model)
-    model = BertForSequenceClassification.from_pretrained(CONFIG.libert_pretrained_input_model,
+    config = BertConfig.from_pretrained(CONFIG.PRETRAINED_MODEL["libert"]["input_path"])
+    model = BertForSequenceClassification.from_pretrained(CONFIG.PRETRAINED_MODEL["libert"]["input_path"],
                                                           config= config)
     loss_fct = CrossEntropyLoss(weight=class_weights)
     return model, loss_fct

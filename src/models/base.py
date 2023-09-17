@@ -14,7 +14,7 @@ class BaseClassificationModel(nn.Module):
         
         
         # model body
-        self.model = AutoModel.from_pretrained(CONFIG.pretrained_model_name)
+        self.model = AutoModel.from_pretrained(CONFIG.BASE_MODEL["base"]["name"])
         
         self.hidden_size = self.model.config.hidden_size #768
         

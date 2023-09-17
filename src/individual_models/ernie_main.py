@@ -8,13 +8,13 @@ from evaluation.eval_report import run_classification_report
 from config import CONFIG
 
 # Load datasets
-df = pd.read_pickle(CONFIG.data)
+df = pd.read_pickle(CONFIG.DATA_PATH)
 train_df = df[df['mode'] == 'train']
 labels = train_df[train_df['label'].isin(['Attack', 'Support'])]['label']
 
 class_weights, dic_class_weights = compute_class_weights(labels)
 
-tokenizer = BertTokenizerFast.from_pretrained(CONFIG.ernie_pretrained_model_name)
+tokenizer = CONFIG.PRETRAINED_MODEL["ernie"]["tokenizer"]
 train_dataset = create_dataset("train", tokenizer, False)
 validate_dataset = create_dataset("validate", tokenizer, False)
 
@@ -46,4 +46,4 @@ trainer.train()
 run_classification_report(trainer, tokenizer)
 
 # Save the model
-trainer.save_model(CONFIG.ernie_pretrained_output_model)
+trainer.save_model(CONFIG.PRETRAINED_MODEL["ernie"]["output_path"])

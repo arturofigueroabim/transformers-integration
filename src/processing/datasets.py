@@ -62,7 +62,7 @@ def collate_fn(batch):
 
 def create_dataset(mode: str, tokenizer, shuffle=False):
     
-    df = pd.read_pickle(CONFIG.data)
+    df = pd.read_pickle(CONFIG.DATA_PATH)
     split = df[df['mode'] == mode]
     split = split[split['label'].isin(['Attack', 'Support'])]
     

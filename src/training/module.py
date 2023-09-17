@@ -76,11 +76,11 @@ class ClassificationModule(pl.LightningModule):
         return [optimizer], [{"scheduler": lr_scheduler, "interval": "step"}]
 
     def create_data_loader(self, mode: str, shuffle=False):
-        df = pandas.read_pickle(CONFIG.data)
+        df = pandas.read_pickle(CONFIG.DATA_PATH)
         split = df[df['mode'] == mode]
         split = split[split['label'] != 'Rephrase']
         
-        tokenizer = AutoTokenizer.from_pretrained(CONFIG.pretrained_model_name)
+        tokenizer = AutoTokenizer.from_pretrained(CONFIG.BASE_MODEL["base"]["name"])
             
         return DataLoader(
             RelationDataset(split, tokenizer),
